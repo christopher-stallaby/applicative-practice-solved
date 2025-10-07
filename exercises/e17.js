@@ -10,11 +10,38 @@
 
 export function minBy(array, cb) {
   // Your code goes here...
+  if (!Array.isArray(array) || array.length === 0) return undefined;
+  let person = array[0];
+  let minAge = cb(person);
 
+  for (const element of array) {
+    let currentPerson = element;
+    let currentAge = cb(currentPerson);
+
+    if(currentAge < minAge) {
+      person = currentPerson;
+      minAge = currentAge;
+    }
+  };
+  return person;
 }
 
 export function maxBy(array, cb) {
   // Your code goes here...
+  if (!Array.isArray(array) || array.length === 0) return undefined;
+  let person = array[0];
+  let maxAge = cb(person);
+
+  for (const element of array) {
+    let currentPerson = element;
+    let currentAge = cb(currentPerson);
+
+    if(currentAge > maxAge) {
+      person = currentPerson;
+      maxAge = currentAge;
+    }
+  };
+  return person;
 
 }
 
